@@ -22,16 +22,16 @@ export async function generateMetadata({ params }) {
     title: `${work.title} | BrytLinks`,
     description: work.description,
     alternates: {
-      canonical: `/Brytlinks/work/${work.slug}`,
+      canonical: `/work/${work.slug}`,
     },
     openGraph: {
       title: `${work.title} | BrytLinks`,
       description: work.description,
-      url: `/Brytlinks/work/${work.slug}`,
+      url: `/work/${work.slug}`,
       siteName: "BrytLinks",
       images: [
         {
-          url: `/Brytlinks${work.image}`,
+          url: work.image,
           width: 1200,
           height: 900,
           alt: `${work.title} project preview`,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${work.title} | BrytLinks`,
       description: work.description,
-      images: [`/Brytlinks${work.image}`],
+      images: [work.image],
     },
   };
 }

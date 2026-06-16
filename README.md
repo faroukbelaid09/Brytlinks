@@ -2,7 +2,7 @@
 
 A premium dark-mode agency website for BrytLinks, an independent digital studio focused on strategy, design, and development for websites, apps, and digital products.
 
-Live site: [faroukbelaid09.github.io/Brytlinks](https://faroukbelaid09.github.io/Brytlinks/)
+Live site: [brytlinks.com](https://brytlinks.com/)
 
 ## Overview
 
@@ -85,13 +85,13 @@ Deploy the exported site to GitHub Pages:
 npm run deploy
 ```
 
-The project is configured with a production `basePath` for the current GitHub Pages repository path:
+The project is configured for the custom GitHub Pages domain:
 
-```js
-/Brytlinks
+```text
+brytlinks.com
 ```
 
-If the GitHub repository is renamed again, update `basePath`, `assetPrefix`, metadata URLs, and `src/app/utils/basePath.js` to match the new repository name.
+If the custom domain changes, update GitHub Pages, DNS, `public/CNAME`, and the site metadata.
 
 ## Author
 

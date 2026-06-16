@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://faroukbelaid09.github.io"),
+  metadataBase: new URL("https://brytlinks.com"),
   title: {
     default: "BrytLinks | Strategy, Design & Development",
     template: "%s | BrytLinks",
@@ -24,17 +24,17 @@ export const metadata = {
   description:
     "BrytLinks builds premium websites, apps, and digital product experiences for ambitious brands.",
   alternates: {
-    canonical: "/Brytlinks/",
+    canonical: "/",
   },
   openGraph: {
     title: "BrytLinks | Strategy, Design & Development",
     description:
       "Premium websites, apps, and digital product experiences for ambitious brands.",
-    url: "/Brytlinks/",
+    url: "/",
     siteName: "BrytLinks",
     images: [
       {
-        url: "/Brytlinks/logo-mark.png",
+        url: "/logo-mark.png",
         width: 512,
         height: 512,
         alt: "BrytLinks logo mark",
@@ -48,7 +48,7 @@ export const metadata = {
     title: "BrytLinks | Strategy, Design & Development",
     description:
       "Premium websites, apps, and digital product experiences for ambitious brands.",
-    images: ["/Brytlinks/logo-mark.png"],
+    images: ["/logo-mark.png"],
   },
 };
 
