@@ -1,105 +1,69 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, Menu } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import styles from "./Navbar.module.css";
 import MenuPanel from "./MenuPanel";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <>
-            <nav className={styles.navbar}>
+  return (
+    <>
+      <nav className={styles.navbar} aria-label="Primary navigation">
+        <motion.button
+          type="button"
+          className={styles.menuBtn}
+          onClick={() => setIsOpen(true)}
+          initial="rest"
+          animate="rest"
+          whileHover="hover"
+          whileTap={{ scale: 0.97 }}
+          aria-label="Open menu"
+          aria-expanded={isOpen}
+        >
+          <motion.span
+            className={styles.menuIcon}
+            variants={{
+              rest: { x: 0, rotate: 0 },
+              hover: { x: 26, rotate: 180 },
+            }}
+            transition={{ type: "spring", stiffness: 280, damping: 24 }}
+          >
+            <Menu aria-hidden="true" size={18} strokeWidth={2} />
+          </motion.span>
 
-                {/* Menu Button */}
-                <motion.button
-                    className={styles.menuBtn}
-                    initial="rest"
-                    whileHover="hover"
-                    animate="rest"
-                    onClick={() => setIsOpen(true)}
-                >
+          <motion.span
+            className={styles.menuLabel}
+            variants={{
+              rest: { opacity: 1, x: 0 },
+              hover: { opacity: 0, x: -8 },
+            }}
+            transition={{ duration: 0.18 }}
+          >
+            Menu
+          </motion.span>
+        </motion.button>
 
-                    {/* Icon */}
-                    <motion.span
-                        className={styles.icon}
-                        variants={{
-                            rest: { x: 0 },
-                            hover: { x: 40, rotate: 180 }
+        <Link href="/" className={styles.wordmark} aria-label="BrytLinks home">
+          Bryt<span>Links</span>
+        </Link>
 
-                        }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 25
-                        }}
-                    >
-                        <svg
-                            width="32"
-                            height="32"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                        >
-                            <circle cx="12" cy="12" r="12" fill="white" />
+        <motion.a
+          href="https://wa.me/79934824885?text=Hi%20BrytLinks%2C%20I%20want%20to%20start%20a%20project."
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.contact}
+          whileTap={{ scale: 0.97 }}
+        >
+          Start a project
+          <ArrowUpRight aria-hidden="true" size={17} />
+        </motion.a>
+      </nav>
 
-                            <path
-                                d="M6 9H18M6 15H18"
-                                stroke="#de0015"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                            />
-                        </svg>
-                    </motion.span>
-
-                    {/* Text */}
-                    <motion.span
-                        className={styles.label}
-                        variants={{
-                            rest: { opacity: 1, x: 0 },
-                            hover: { opacity: 0, x: -10 }
-                        }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        Menu
-                    </motion.span>
-
-                </motion.button>
-
-                {/* Title */}
-                <motion.h1 className={styles.Title}>
-                    <span>Webly</span>
-                </motion.h1>
-
-                {/* Contact Button */}
-                <motion.button
-                    className={styles.contactBtn}
-                    initial="rest"
-                    animate="rest"
-                    whileHover="hover"
-                >
-                    {/* Background */}
-                    <motion.span
-                        className={styles.bg}
-                        variants={{
-                            rest: { scale: 1 },
-                            hover: { scale: 1.08 }
-                        }}
-                        transition={{
-                            type: "spring",
-                            stiffness: 200,
-                            damping: 10,
-                            mass: 0.8
-                        }}
-                    />
-
-                    {/* Text */}
-                    <span className={styles.label}>Contact</span>
-                </motion.button>
-
-            </nav>
-
-            <MenuPanel isOpen={isOpen} setIsOpen={setIsOpen} />
-        </>
-    );
+      <MenuPanel isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
+  );
 }
