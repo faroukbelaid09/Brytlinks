@@ -35,13 +35,13 @@ The design direction focuses on a refined dark interface, glassy navigation, ani
 
 ```text
 src/app
-├── components        Reusable page sections and UI components
-├── data              Project/case-study content
-├── utils             Deployment base path helper
-├── work/[slug]       Dynamic case-study pages
-├── globals.css       Global styling
-├── layout.js         App metadata and root layout
-└── page.js           Homepage composition
+|-- components        Reusable page sections and UI components
+|-- data              Project and case-study content
+|-- utils             Deployment base path helper
+|-- work/[slug]       Dynamic case-study pages
+|-- globals.css       Global styling
+|-- layout.js         App metadata and root layout
+`-- page.js           Homepage composition
 ```
 
 ## Getting Started
@@ -84,7 +84,7 @@ The project is configured with a production `basePath` for the current GitHub Pa
 /Brytlinks
 ```
 
-If the GitHub repository is renamed again, update the `basePath`, `assetPrefix`, metadata URLs, and `src/app/utils/basePath.js` to match the new repository name.
+If the GitHub repository is renamed again, update `basePath`, `assetPrefix`, metadata URLs, and `src/app/utils/basePath.js` to match the new repository name.
 
 ## Author
 
