@@ -1,86 +1,49 @@
 "use client";
 
+import { motion } from "framer-motion";
 import worksData from "../data/workData";
 import WorkCard from "./WorkCard";
 import styles from "./Works.module.css";
-import { motion } from "framer-motion";
-import { useState } from 'react';
+
+const reveal = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0 },
+};
 
 export default function Works() {
-  const [activeCard, setActiveCard] = useState(null);
-
   return (
-    <div className={styles.container}>
-      <div className={styles.service_top_side}>
-
-        {/* Title */}
-        <motion.h2
-          className={styles.title}
+    <section id="work" className={styles.section}>
+      <div className={styles.container}>
+        <motion.header
+          className={styles.header}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
           variants={{
-            hidden: { opacity: 0, y: 40 },
-            show: { opacity: 1, y: 0 }
+            hidden: {},
+            show: { transition: { staggerChildren: 0.1 } },
           }}
         >
-          Our Work
-        </motion.h2>
+          <motion.div variants={reveal}>
+            <span className={styles.kicker}>Selected work</span>
+            <h2>
+              Built to perform.
+              <span> Designed to matter.</span>
+            </h2>
+          </motion.div>
 
-        {/* Subtitle */}
-        <motion.p
-          className={styles.subtitle}
-          variants={{
-            hidden: { opacity: 0 },
-            show: { opacity: 1 }
-          }}
-        >
-          We build the next in commerce on Shopify. From strategy to design,
-          development to retention, we've got you covered. 9+ years of experience,
-          200+ stores launched, 60+ experts and we're your partner from discovery
-          to launch and beyond.
-        </motion.p>
+          <motion.p className={styles.intro} variants={reveal}>
+            A selection of digital products shaped through strategy, design,
+            and careful engineering.
+          </motion.p>
+        </motion.header>
 
-        {/* CTA */}
-        <motion.button
-          className={styles.cta}
-          variants={{
-            hidden: { opacity: 0 },
-            show: { opacity: 1 }
-          }}
-          transition={{ duration: 1, delay: 0.8 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          whileHover="hover"
-        >
-          <motion.span
-            className={styles.bg}
-            variants={{
-              rest: { scale: 1 },
-              hover: { scale: 1.08 }
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 200,
-              damping: 10,
-              mass: 0.8
-            }}
-          />
-          <span className={styles.label}>Work with us</span>
-        </motion.button>
+        <div className={styles.projects}>
+          {worksData.map((work, index) => (
+            <WorkCard key={work.id} work={work} index={index} />
+          ))}
+        </div>
       </div>
-
-      <div className={styles.service_bottom_side}>
-        {worksData.map((work) => (
-          <WorkCard
-            key={work.id}
-            work={work}
-            active={activeCard === work.id}
-            onClick={() =>
-              setActiveCard(activeCard === work.id ? null : work.id)
-            }
-          />
-        ))}
-      </div>
-
-
-    </div>
+    </section>
   );
 }

@@ -1,40 +1,61 @@
+"use client";
+
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import basePath from "../utils/basePath";
 import styles from "./Works.module.css";
 
-export default function WorkCard({ work, active, onClick }) {
+export default function WorkCard({ work, index }) {
+  const projectNumber = String(index + 1).padStart(2, "0");
+
   return (
-    <div
-      className={`${styles.card} ${active ? styles.active : ""}`}
-      onClick={onClick}
+    <motion.article
+      className={styles.project}
+      initial={{ opacity: 0, y: 42 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className={styles.left}>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={styles.card_title}
+      <Link href={`/work/${work.slug}`} className={styles.projectLink}>
+        <div
+          className={`${styles.media} ${
+            work.slug === "tic-tac-pro" ? styles.gameMedia : ""
+          }`}
         >
-          {work.title}
-        </motion.h1>
+          <motion.img
+            src={`${basePath}${work.image}`}
+            alt={`${work.title} project preview`}
+            whileHover={{ scale: 1.025 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          />
 
-        <p className={styles.card_description}>
-          {work.description}
-        </p>
+          <div className={styles.mediaShade} />
 
-        <div className={styles.card_tags}>
-          {work.tags.map((tag, i) => (
-            <span key={i} className={styles.card_tag}>
-              {tag}
-            </span>
-          ))}
+          <span className={styles.projectNumber}>{projectNumber}</span>
+
+          <span className={styles.openIcon}>
+            <ArrowUpRight aria-hidden="true" size={22} />
+          </span>
         </div>
 
-        <button className={styles.card_button}>
-          View Project
-        </button>
+        <div className={styles.projectInfo}>
+          <div>
+            <span className={styles.meta}>
+              {work.client} / {work.year}
+            </span>
+            <h3>{work.title}</h3>
+          </div>
 
-      </div>
-    </div>
+          <p>{work.description}</p>
+
+          <div className={styles.tags}>
+            {work.tags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+        </div>
+      </Link>
+    </motion.article>
   );
 }
