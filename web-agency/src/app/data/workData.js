@@ -1,6 +1,30 @@
 const worksData = [
   {
     id: 1,
+    slug: "shelby-woodcraft",
+    title: "Shelby Woodcraft",
+    description:
+      "A premium digital presence for a luxury woodworking studio, designed to showcase bespoke interiors, architectural details, and refined craftsmanship.",
+    tags: ["Luxury Website", "Brand Experience", "React"],
+    image: "/shelby-cover.jpg",
+    live: "https://faroukbelaid09.github.io/ShelbyWoodCraft/",
+    year: "2026",
+    client: "Shelby Woodcraft",
+
+    challenge:
+      "Shelby Woodcraft needed a digital experience that could match the quality of its physical work. The challenge was to present premium furniture, interiors, and architectural woodwork with enough atmosphere and clarity to build trust quickly.",
+
+    solution:
+      "We designed and built a refined visual website with cinematic hero treatment, elegant typography, project-led storytelling, and a dedicated gallery experience. The result gives Shelby Woodcraft a polished online presence that reflects its luxury positioning and makes its craftsmanship easier to explore.",
+
+    gallery: [
+      "/shelby-work.jpg",
+      "/shelby-gallery.jpg",
+    ]
+  },
+
+  {
+    id: 2,
     slug: "fitness-app",
     title: "Momentum Fitness",
     description:
@@ -24,7 +48,7 @@ const worksData = [
   },
 
   {
-    id: 2,
+    id: 3,
     slug: "finance-app",
     title: "Flow Finance",
     description:
@@ -48,7 +72,7 @@ const worksData = [
   },
 
   {
-    id: 3,
+    id: 4,
     slug: "tic-tac-pro",
     title: "Tic Tac Pro",
     description:
@@ -68,29 +92,6 @@ const worksData = [
     gallery: [
       "/tictactoe3.jpg",
       "/tictactoe1.png"
-    ]
-  },
-
-  {
-    id: 4,
-    slug: "ecommerce-store",
-    title: "Nova Commerce",
-    description:
-      "A high-performance e-commerce experience built to maximize conversions through speed, clarity, and minimal design.",
-    tags: ["E-commerce", "Performance", "Next.js"],
-    image: "/ecom.jpg",
-    live: "",
-    year: "2025",
-    client: "Retail Brand",
-
-    challenge:
-      "The existing store suffered from slow performance, cluttered layouts, and low conversion rates. Users struggled to navigate products and complete purchases efficiently.",
-
-    solution:
-      "We rebuilt the store with a performance-first approach and a minimal design system. By simplifying navigation, optimizing load times, and focusing on conversion-driven UX patterns, we created a seamless shopping experience that guides users effortlessly from discovery to checkout.",
-
-    gallery: [
-      "/ecom1.jpg",
     ]
   }
 ];
